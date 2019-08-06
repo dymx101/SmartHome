@@ -8,6 +8,7 @@
 
 import Foundation
 
-struct Fixture {
-    
+struct Fixture: Codable {
+    var name: String
+    var isOn: Bool
 }

@@ -8,6 +8,18 @@
 
 import Foundation
 
-struct House {
+struct House: Codable {
+    let rooms: HouseRooms
+}
+
+struct HouseRooms: Codable {
+    let bedroom: Room
+    let livingRoom: Room
+    let kicken: Room
     
+    private enum CodingKeys: String, CodingKey {
+        case bedroom = "Bedroom"
+        case livingRoom = "Living Room"
+        case kicken = "Kitchen"
+    }
 }

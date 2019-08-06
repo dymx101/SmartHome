@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Room {
-    
+struct Room: Codable {
+    let fixtures: [String]
 }
