@@ -26,6 +26,7 @@
 		8CAB619F22F9015300329C2B /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB619E22F9015300329C2B /* Fixture.swift */; };
 		8CAB61A122F9018600329C2B /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61A022F9018600329C2B /* ApiService.swift */; };
 		8CAB61A422F901CF00329C2B /* TemperaturePoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61A322F901CF00329C2B /* TemperaturePoller.swift */; };
+		8CAB61A822F9080E00329C2B /* HouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61A722F9080E00329C2B /* HouseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		8CAB619E22F9015300329C2B /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		8CAB61A022F9018600329C2B /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		8CAB61A322F901CF00329C2B /* TemperaturePoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperaturePoller.swift; sourceTree = "<group>"; };
+		8CAB61A722F9080E00329C2B /* HouseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTests.swift; sourceTree = "<group>"; };
 		CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
 		D32BCD5C0B20F86FA2C297C7 /* Pods_SmartHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -160,6 +162,7 @@
 		8CAB616B22F8FC4500329C2B /* SmartHomeTests */ = {
 			isa = PBXGroup;
 			children = (
+				8CAB61A522F907F300329C2B /* Data */,
 				8CAB616C22F8FC4500329C2B /* SmartHomeTests.swift */,
 				8CAB616E22F8FC4500329C2B /* Info.plist */,
 			);
@@ -252,6 +255,22 @@
 				8CAB61A322F901CF00329C2B /* TemperaturePoller.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		8CAB61A522F907F300329C2B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB61A622F907FB00329C2B /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8CAB61A622F907FB00329C2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB61A722F9080E00329C2B /* HouseTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -449,6 +468,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CAB61A822F9080E00329C2B /* HouseTests.swift in Sources */,
 				8CAB616D22F8FC4500329C2B /* SmartHomeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
