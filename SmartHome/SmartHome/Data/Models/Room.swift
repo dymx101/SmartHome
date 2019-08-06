@@ -10,4 +10,5 @@ import Foundation
 
 struct Room: Codable {
     let fixtures: [String]
+    var fixtureStatusMap: [String: Bool]?
 }
