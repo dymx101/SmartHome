@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,17 @@
 		8CAB616222F8FC4500329C2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB616022F8FC4500329C2B /* LaunchScreen.storyboard */; };
 		8CAB616D22F8FC4500329C2B /* SmartHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB616C22F8FC4500329C2B /* SmartHomeTests.swift */; };
 		8CAB617822F8FC4500329C2B /* SmartHomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB617722F8FC4500329C2B /* SmartHomeUITests.swift */; };
+		8CAB618822F9000200329C2B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB618722F9000200329C2B /* NetworkManager.swift */; };
+		8CAB618A22F9003800329C2B /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB618922F9003800329C2B /* DataStorage.swift */; };
+		8CAB618F22F900A000329C2B /* HomepageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB618E22F900A000329C2B /* HomepageViewController.swift */; };
+		8CAB619222F900C400329C2B /* HomepageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB619122F900C400329C2B /* HomepageViewModel.swift */; };
+		8CAB619522F900E400329C2B /* RoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB619422F900E400329C2B /* RoomViewModel.swift */; };
+		8CAB619722F900F200329C2B /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB619622F900F200329C2B /* RoomViewController.swift */; };
+		8CAB619B22F9012600329C2B /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB619A22F9012600329C2B /* House.swift */; };
+		8CAB619D22F9014000329C2B /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB619C22F9014000329C2B /* Room.swift */; };
+		8CAB619F22F9015300329C2B /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB619E22F9015300329C2B /* Fixture.swift */; };
+		8CAB61A122F9018600329C2B /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61A022F9018600329C2B /* ApiService.swift */; };
+		8CAB61A422F901CF00329C2B /* TemperaturePoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61A322F901CF00329C2B /* TemperaturePoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +60,17 @@
 		8CAB617322F8FC4500329C2B /* SmartHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAB617722F8FC4500329C2B /* SmartHomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeUITests.swift; sourceTree = "<group>"; };
 		8CAB617922F8FC4500329C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CAB618722F9000200329C2B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8CAB618922F9003800329C2B /* DataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		8CAB618E22F900A000329C2B /* HomepageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewController.swift; sourceTree = "<group>"; };
+		8CAB619122F900C400329C2B /* HomepageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageViewModel.swift; sourceTree = "<group>"; };
+		8CAB619422F900E400329C2B /* RoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewModel.swift; sourceTree = "<group>"; };
+		8CAB619622F900F200329C2B /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		8CAB619A22F9012600329C2B /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
+		8CAB619C22F9014000329C2B /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		8CAB619E22F9015300329C2B /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
+		8CAB61A022F9018600329C2B /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		8CAB61A322F901CF00329C2B /* TemperaturePoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperaturePoller.swift; sourceTree = "<group>"; };
 		CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
 		D32BCD5C0B20F86FA2C297C7 /* Pods_SmartHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -93,7 +115,6 @@
 				CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */,
 				3665F6C16EB97DCEF1E12DA6 /* Pods-SmartHome.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -122,6 +143,10 @@
 		8CAB615622F8FC4000329C2B /* SmartHome */ = {
 			isa = PBXGroup;
 			children = (
+				8CAB61A222F901BD00329C2B /* Utility */,
+				8CAB618B22F9005400329C2B /* App */,
+				8CAB618622F8FFE400329C2B /* Data */,
+				8CAB618522F8FFC200329C2B /* Network */,
 				8CAB615722F8FC4000329C2B /* AppDelegate.swift */,
 				8CAB615922F8FC4000329C2B /* ViewController.swift */,
 				8CAB615B22F8FC4000329C2B /* Main.storyboard */,
@@ -148,6 +173,85 @@
 				8CAB617922F8FC4500329C2B /* Info.plist */,
 			);
 			path = SmartHomeUITests;
+			sourceTree = "<group>";
+		};
+		8CAB618522F8FFC200329C2B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB618722F9000200329C2B /* NetworkManager.swift */,
+				8CAB61A022F9018600329C2B /* ApiService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		8CAB618622F8FFE400329C2B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB619922F9011500329C2B /* Models */,
+				8CAB618922F9003800329C2B /* DataStorage.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		8CAB618B22F9005400329C2B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB618D22F9007800329C2B /* Room */,
+				8CAB618C22F9006B00329C2B /* Homepage */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8CAB618C22F9006B00329C2B /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB619022F900A900329C2B /* ViewModels */,
+				8CAB618E22F900A000329C2B /* HomepageViewController.swift */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		8CAB618D22F9007800329C2B /* Room */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB619322F900D300329C2B /* ViewModels */,
+				8CAB619622F900F200329C2B /* RoomViewController.swift */,
+			);
+			path = Room;
+			sourceTree = "<group>";
+		};
+		8CAB619022F900A900329C2B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB619122F900C400329C2B /* HomepageViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8CAB619322F900D300329C2B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB619422F900E400329C2B /* RoomViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8CAB619922F9011500329C2B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB619A22F9012600329C2B /* House.swift */,
+				8CAB619C22F9014000329C2B /* Room.swift */,
+				8CAB619E22F9015300329C2B /* Fixture.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8CAB61A222F901BD00329C2B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8CAB61A322F901CF00329C2B /* TemperaturePoller.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,8 +429,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CAB619F22F9015300329C2B /* Fixture.swift in Sources */,
+				8CAB618822F9000200329C2B /* NetworkManager.swift in Sources */,
+				8CAB61A122F9018600329C2B /* ApiService.swift in Sources */,
 				8CAB615A22F8FC4000329C2B /* ViewController.swift in Sources */,
 				8CAB615822F8FC4000329C2B /* AppDelegate.swift in Sources */,
+				8CAB618A22F9003800329C2B /* DataStorage.swift in Sources */,
+				8CAB619D22F9014000329C2B /* Room.swift in Sources */,
+				8CAB619B22F9012600329C2B /* House.swift in Sources */,
+				8CAB619222F900C400329C2B /* HomepageViewModel.swift in Sources */,
+				8CAB619522F900E400329C2B /* RoomViewModel.swift in Sources */,
+				8CAB618F22F900A000329C2B /* HomepageViewController.swift in Sources */,
+				8CAB61A422F901CF00329C2B /* TemperaturePoller.swift in Sources */,
+				8CAB619722F900F200329C2B /* RoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
