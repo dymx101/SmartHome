@@ -31,6 +31,9 @@
 		8CAB61AD22FA469200329C2B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61AC22FA469200329C2B /* Endpoint.swift */; };
 		8CAB61B222FA4C1200329C2B /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */; };
 		8CAB61B722FA4D6E00329C2B /* UnitTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */; };
+		8CC4219822FB17EB00BCC02A /* FixtureCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219722FB17EB00BCC02A /* FixtureCellViewModel.swift */; };
+		8CC4219A22FB1CB400BCC02A /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219922FB1CB400BCC02A /* RoomType.swift */; };
+		8CC4219C22FB1D6300BCC02A /* FixtureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219B22FB1D6300BCC02A /* FixtureType.swift */; };
 		8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */; };
 		8CE428AA22FB041400EBCB57 /* HomepageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +87,9 @@
 		8CAB61AC22FA469200329C2B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestConstants.swift; sourceTree = "<group>"; };
+		8CC4219722FB17EB00BCC02A /* FixtureCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCellViewModel.swift; sourceTree = "<group>"; };
+		8CC4219922FB1CB400BCC02A /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
+		8CC4219B22FB1D6300BCC02A /* FixtureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureType.swift; sourceTree = "<group>"; };
 		8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageCellViewModel.swift; sourceTree = "<group>"; };
 		CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				8CAB619422F900E400329C2B /* RoomViewModel.swift */,
+				8CC4219722FB17EB00BCC02A /* FixtureCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -266,7 +273,9 @@
 			children = (
 				8CAB619A22F9012600329C2B /* House.swift */,
 				8CAB619C22F9014000329C2B /* Room.swift */,
+				8CC4219922FB1CB400BCC02A /* RoomType.swift */,
 				8CAB619E22F9015300329C2B /* Fixture.swift */,
+				8CC4219B22FB1D6300BCC02A /* FixtureType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -541,9 +550,12 @@
 				8CAB618822F9000200329C2B /* NetworkManager.swift in Sources */,
 				8CAB61A122F9018600329C2B /* ApiService.swift in Sources */,
 				8CAB615A22F8FC4000329C2B /* ViewController.swift in Sources */,
+				8CC4219C22FB1D6300BCC02A /* FixtureType.swift in Sources */,
+				8CC4219A22FB1CB400BCC02A /* RoomType.swift in Sources */,
 				8CAB615822F8FC4000329C2B /* AppDelegate.swift in Sources */,
 				8CAB618A22F9003800329C2B /* DataStorage.swift in Sources */,
 				8CE428AA22FB041400EBCB57 /* HomepageCellViewModel.swift in Sources */,
+				8CC4219822FB17EB00BCC02A /* FixtureCellViewModel.swift in Sources */,
 				8CAB619D22F9014000329C2B /* Room.swift in Sources */,
 				8CAB619B22F9012600329C2B /* House.swift in Sources */,
 				8CAB619222F900C400329C2B /* HomepageViewModel.swift in Sources */,
