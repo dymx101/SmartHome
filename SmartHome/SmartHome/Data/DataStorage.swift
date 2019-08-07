@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol DataStoraging {
+protocol DataStoring {
     func saveHouse(_ house: House?)
     func loadHouse() -> House?
 }
 
-class DataStorage: DataStoraging {
+class DataStorage: DataStoring {
     private let STORE_KEY_HOUSE = "STORE_KEY_HOUSE"
     func saveHouse(_ house: House?) {
         let data = try? JSONEncoder().encode(house)
