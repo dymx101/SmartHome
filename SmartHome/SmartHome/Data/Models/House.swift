@@ -9,17 +9,17 @@
 import Foundation
 
 struct House: Codable {
-    let rooms: HouseRooms
+    var rooms: HouseRooms
 }
 
 struct HouseRooms: Codable {
-    let bedroom: Room
-    let livingRoom: Room
-    let kicken: Room
+    var bedroom: Room
+    var livingRoom: Room
+    var kitcken: Room
     
     private enum CodingKeys: String, CodingKey {
         case bedroom = "Bedroom"
         case livingRoom = "Living Room"
-        case kicken = "Kitchen"
+        case kitcken = "Kitchen"
     }
 }

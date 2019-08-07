@@ -24,13 +24,13 @@ class HouseTests: XCTestCase {
             XCTAssertEqual(house.rooms.livingRoom.fixtures[0], "Light", "data should be correct")
             XCTAssertEqual(house.rooms.livingRoom.fixtures[1], "TV", "data should be correct")
             
-            XCTAssertEqual(house.rooms.kicken.fixtures[0], "Light", "data should be correct")
-            XCTAssertEqual(house.rooms.kicken.fixtures[1], "Music", "data should be correct")
-            XCTAssertEqual(house.rooms.kicken.fixtures[2], "Slowcooker", "data should be correct")
+            XCTAssertEqual(house.rooms.kitcken.fixtures[0], "Light", "data should be correct")
+            XCTAssertEqual(house.rooms.kitcken.fixtures[1], "Music", "data should be correct")
+            XCTAssertEqual(house.rooms.kitcken.fixtures[2], "Slowcooker", "data should be correct")
             
             XCTAssertNotNil(house.rooms.bedroom.fixtureStatusMap, "data should not be nil")
             XCTAssertNil(house.rooms.livingRoom.fixtureStatusMap, "data should be nil")
-            XCTAssertNil(house.rooms.kicken.fixtureStatusMap, "data should be nil")
+            XCTAssertNil(house.rooms.kitcken.fixtureStatusMap, "data should be nil")
             
             XCTAssertEqual(house.rooms.bedroom.fixtureStatusMap!["Light1"], true, "data should be correct")
             XCTAssertEqual(house.rooms.bedroom.fixtureStatusMap!["Light2"], false, "data should be correct")
@@ -58,13 +58,13 @@ class HouseTests: XCTestCase {
             XCTAssertEqual(sameHouse.rooms.livingRoom.fixtures[0], "Light", "data should be correct")
             XCTAssertEqual(sameHouse.rooms.livingRoom.fixtures[1], "TV", "data should be correct")
             
-            XCTAssertEqual(sameHouse.rooms.kicken.fixtures[0], "Light", "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.kicken.fixtures[1], "Music", "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.kicken.fixtures[2], "Slowcooker", "data should be correct")
+            XCTAssertEqual(sameHouse.rooms.kitcken.fixtures[0], "Light", "data should be correct")
+            XCTAssertEqual(sameHouse.rooms.kitcken.fixtures[1], "Music", "data should be correct")
+            XCTAssertEqual(sameHouse.rooms.kitcken.fixtures[2], "Slowcooker", "data should be correct")
             
             XCTAssertNotNil(sameHouse.rooms.bedroom.fixtureStatusMap, "data should not be nil")
             XCTAssertNil(sameHouse.rooms.livingRoom.fixtureStatusMap, "data should be nil")
-            XCTAssertNil(sameHouse.rooms.kicken.fixtureStatusMap, "data should be nil")
+            XCTAssertNil(sameHouse.rooms.kitcken.fixtureStatusMap, "data should be nil")
             
             XCTAssertEqual(sameHouse.rooms.bedroom.fixtureStatusMap!["Light1"], true, "data should be correct")
             XCTAssertEqual(sameHouse.rooms.bedroom.fixtureStatusMap!["Light2"], false, "data should be correct")
