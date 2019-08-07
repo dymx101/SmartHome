@@ -18,9 +18,9 @@ protocol ApiServiceProvider {
 }
 
 class ApiService: ApiServiceProvider {
-    private var networkManager: NetworkManager
+    private var networkManager: NetworkManaging
     
-    init(networkManager: NetworkManager) {
+    init(networkManager: NetworkManaging) {
         self.networkManager = networkManager
     }
     
