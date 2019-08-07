@@ -14,7 +14,6 @@
 		8CAB615D22F8FC4000329C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB615B22F8FC4000329C2B /* Main.storyboard */; };
 		8CAB615F22F8FC4500329C2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB615E22F8FC4500329C2B /* Assets.xcassets */; };
 		8CAB616222F8FC4500329C2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB616022F8FC4500329C2B /* LaunchScreen.storyboard */; };
-		8CAB616D22F8FC4500329C2B /* SmartHomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB616C22F8FC4500329C2B /* SmartHomeTests.swift */; };
 		8CAB617822F8FC4500329C2B /* SmartHomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB617722F8FC4500329C2B /* SmartHomeUITests.swift */; };
 		8CAB618822F9000200329C2B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB618722F9000200329C2B /* NetworkManager.swift */; };
 		8CAB618A22F9003800329C2B /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB618922F9003800329C2B /* DataStorage.swift */; };
@@ -33,6 +32,7 @@
 		8CAB61B222FA4C1200329C2B /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */; };
 		8CAB61B722FA4D6E00329C2B /* UnitTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */; };
 		8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */; };
+		8CE428AA22FB041400EBCB57 /* HomepageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +64,6 @@
 		8CAB616122F8FC4500329C2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CAB616322F8FC4500329C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CAB616822F8FC4500329C2B /* SmartHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8CAB616C22F8FC4500329C2B /* SmartHomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeTests.swift; sourceTree = "<group>"; };
 		8CAB616E22F8FC4500329C2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CAB617322F8FC4500329C2B /* SmartHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAB617722F8FC4500329C2B /* SmartHomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeUITests.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestConstants.swift; sourceTree = "<group>"; };
 		8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
+		8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageCellViewModel.swift; sourceTree = "<group>"; };
 		CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
 		D32BCD5C0B20F86FA2C297C7 /* Pods_SmartHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58085FFF464B79016D8ADFC /* Pods_SmartHomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,7 +183,6 @@
 				8CAB61B322FA4C5C00329C2B /* Mock */,
 				8CAB61AE22FA4BE700329C2B /* Network */,
 				8CAB61A522F907F300329C2B /* Data */,
-				8CAB616C22F8FC4500329C2B /* SmartHomeTests.swift */,
 				8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */,
 				8CAB616E22F8FC4500329C2B /* Info.plist */,
 			);
@@ -249,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				8CAB619122F900C400329C2B /* HomepageViewModel.swift */,
+				8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -543,6 +543,7 @@
 				8CAB615A22F8FC4000329C2B /* ViewController.swift in Sources */,
 				8CAB615822F8FC4000329C2B /* AppDelegate.swift in Sources */,
 				8CAB618A22F9003800329C2B /* DataStorage.swift in Sources */,
+				8CE428AA22FB041400EBCB57 /* HomepageCellViewModel.swift in Sources */,
 				8CAB619D22F9014000329C2B /* Room.swift in Sources */,
 				8CAB619B22F9012600329C2B /* House.swift in Sources */,
 				8CAB619222F900C400329C2B /* HomepageViewModel.swift in Sources */,
@@ -562,7 +563,6 @@
 				8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */,
 				8CAB61AB22FA2C0300329C2B /* DataStorageTests.swift in Sources */,
 				8CAB61A822F9080E00329C2B /* HouseTests.swift in Sources */,
-				8CAB616D22F8FC4500329C2B /* SmartHomeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
