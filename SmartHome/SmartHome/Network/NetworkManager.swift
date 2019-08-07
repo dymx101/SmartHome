@@ -41,7 +41,15 @@ class NetworkManager: NetworkManaging {
                         return
                     }
                     
-                    self.decode(type, data: dataResponse.data, completion: completion)
+                    if "String" is T {
+                        if let data = dataResponse.data, let strResult = String(data: data, encoding: .utf8) {
+                            completion(.success(strResult as! T))
+                        } else {
+                            completion(.failure(NetworkError.dataNotAvailable))
+                        }
+                    } else {
+                        self.decode(type, data: dataResponse.data, completion: completion)
+                    }
                 })
         } catch {
             completion(.failure(error))
