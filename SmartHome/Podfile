@@ -10,3 +10,7 @@ target 'SmartHome' do
   pod 'RxCocoa'
   pod 'SVProgressHUD'
 end
+
+target 'SmartHomeTests' do
+  pod 'Alamofire'
+end
