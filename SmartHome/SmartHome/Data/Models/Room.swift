@@ -11,4 +11,14 @@ import Foundation
 struct Room: Codable {
     let fixtures: [String]
     var fixtureStatusMap: [String: Bool]?
+    
+    mutating func populateMap() {
+        if fixtureStatusMap == nil {
+            var map =  [String: Bool]()
+            fixtures.forEach { (name) in
+                map[name] = false
+            }
+            fixtureStatusMap = map
+        }
+    }
 }

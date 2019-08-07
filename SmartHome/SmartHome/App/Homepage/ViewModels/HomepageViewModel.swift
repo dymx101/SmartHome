@@ -22,10 +22,14 @@ class HomepageViewModel {
     
     func getRooms() {
         // get data from local storage
-        if let house = dataStorage.loadHouse() {
-            rooms.accept([HomepageCellViewModel(name: "Bedroom", room: house.rooms.bedroom),
-                                HomepageCellViewModel(name: "Living Room", room: house.rooms.livingRoom),
-                                HomepageCellViewModel(name: "Kitchen", room: house.rooms.kitcken)])
+        if var house = dataStorage.loadHouse() {
+            house.rooms.bedroom.populateMap()
+            house.rooms.livingRoom.populateMap()
+            house.rooms.kitcken.populateMap()
+            
+            rooms.accept([HomepageCellViewModel(room: house.rooms.bedroom, type: .bedroom),
+                                HomepageCellViewModel(room: house.rooms.livingRoom, type: .livingRoom),
+                                HomepageCellViewModel(room: house.rooms.kitcken, type: .kitcken)])
             return
         }
         
@@ -34,11 +38,14 @@ class HomepageViewModel {
         apiService.getRooms { [weak self] (result) in
             SVProgressHUD.dismiss()
             do {
-                let house = try result.get()
+                var house = try result.get()
+                house.rooms.bedroom.populateMap()
+                house.rooms.livingRoom.populateMap()
+                house.rooms.kitcken.populateMap()
                 
-                self?.rooms.accept([HomepageCellViewModel(name: "Bedroom", room: house.rooms.bedroom),
-                                    HomepageCellViewModel(name: "Living Room", room: house.rooms.livingRoom),
-                                    HomepageCellViewModel(name: "Kitchen", room: house.rooms.kitcken)])
+                self?.rooms.accept([HomepageCellViewModel(room: house.rooms.bedroom, type: .bedroom),
+                                    HomepageCellViewModel(room: house.rooms.livingRoom, type: .livingRoom),
+                                    HomepageCellViewModel(room: house.rooms.kitcken, type: .kitcken)])
                 // cache the house data
                 self?.dataStorage.saveHouse(house)
             } catch {
