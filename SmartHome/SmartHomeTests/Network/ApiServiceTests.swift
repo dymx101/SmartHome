@@ -38,7 +38,7 @@ class ApiServiceTests: XCTestCase {
     
     func test_turnBedroomLight1_on_shoud_succeed() {
         let exp = expectation(description: "request complete")
-        service.turnBedroomLight1(on: true) { (result) in
+        service.turnFixture(on: true, fixtureType: FixtureType.bedroomLight1) { (result) in
             exp.fulfill()
             do {
                 let success = try result.get()
@@ -53,7 +53,7 @@ class ApiServiceTests: XCTestCase {
     
     func test_turnBedroomLight1_off_shoud_succeed() {
         let exp = expectation(description: "request complete")
-        service.turnBedroomLight1(on: false) { (result) in
+        service.turnFixture(on: false, fixtureType: FixtureType.bedroomLight1) { (result) in
             exp.fulfill()
             do {
                 let success = try result.get()

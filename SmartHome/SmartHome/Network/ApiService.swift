@@ -14,7 +14,7 @@ protocol ApiServiceProvider {
     func getRooms(completion: @escaping ResultBlock<House>) -> DataRequest?
     
     @discardableResult
-    func turnBedroomLight1(on: Bool, completion: @escaping ResultBlock<Bool>) -> DataRequest?
+    func turnFixture(on: Bool, fixtureType: FixtureType, completion: @escaping ResultBlock<Bool>) -> DataRequest?
 }
 
 class ApiService: ApiServiceProvider {
@@ -30,8 +30,8 @@ class ApiService: ApiServiceProvider {
     }
     
     @discardableResult
-    func turnBedroomLight1(on: Bool, completion: @escaping ResultBlock<Bool>) -> DataRequest? {
-        let ep = on ? Endpoint.bedroomLight1On : Endpoint.bedroomLight1Off
+    func turnFixture(on: Bool, fixtureType: FixtureType, completion: @escaping ResultBlock<Bool>) -> DataRequest? {
+        let ep = on ? fixtureType.endpoints.on : fixtureType.endpoints.off
         return networkManager.request(String.self, endpoint: ep) { (result) in
             completion(result.map {$0 == "true"})
         }
