@@ -7,14 +7,15 @@
 //
 
 import XCTest
+import Alamofire
 @testable import SmartHome
 
 class NetworkManagerTests: XCTestCase {
 
     var networkManager: NetworkManager!
-    var sessionManager: MockSessionManager!
+    var sessionManager: SessionManager!
     override func setUp() {
-        sessionManager = MockSessionManager(configuration: URLSessionConfiguration.default)
+        sessionManager = SessionManager(configuration: URLSessionConfiguration.default)
         networkManager = NetworkManager(sessionManager: sessionManager)
     }
 
@@ -23,8 +24,7 @@ class NetworkManagerTests: XCTestCase {
         networkManager.request(House.self, endpoint: Endpoint.rooms) { (result) in
             exp.fulfill()
             do {
-                let data = try result.get()
-                XCTAssertNil(data.rooms.bedroom.fixtureStatusMap!["Light1"], "data should be nil")
+                let _ = try result.get()
             } catch {
                 XCTFail("request should not get error: \(error)")
             }

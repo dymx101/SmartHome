@@ -7,7 +7,33 @@
 //
 
 import Foundation
+import Alamofire
 
-protocol ApiService {
+protocol ApiServiceProvider {
+    @discardableResult
+    func getRooms(completion: @escaping ResultBlock<House>) -> DataRequest?
     
+    @discardableResult
+    func turnBedroomLight1(on: Bool, completion: @escaping ResultBlock<Bool>) -> DataRequest?
+}
+
+class ApiService: ApiServiceProvider {
+    private var networkManager: NetworkManager
+    
+    init(networkManager: NetworkManager) {
+        self.networkManager = networkManager
+    }
+    
+    @discardableResult
+    func getRooms(completion: @escaping ResultBlock<House>) -> DataRequest? {
+        return networkManager.request(House.self, endpoint: .rooms, completion: completion)
+    }
+    
+    @discardableResult
+    func turnBedroomLight1(on: Bool, completion: @escaping ResultBlock<Bool>) -> DataRequest? {
+        let ep = on ? Endpoint.bedroomLight1On : Endpoint.bedroomLight1Off
+        return networkManager.request(String.self, endpoint: ep) { (result) in
+            completion(result.map {$0 == "true"})
+        }
+    }
 }

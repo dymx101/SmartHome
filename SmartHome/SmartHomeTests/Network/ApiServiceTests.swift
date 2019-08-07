@@ -7,27 +7,62 @@
 //
 
 import XCTest
+import Alamofire
+@testable import SmartHome
 
 class ApiServiceTests: XCTestCase {
 
+    var networkManager: NetworkManager!
+    var sessionManager: SessionManager!
+    var service: ApiService!
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sessionManager = SessionManager(configuration: URLSessionConfiguration.default)
+        networkManager = NetworkManager(sessionManager: sessionManager)
+        service = ApiService(networkManager: networkManager)
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func test_requestRooms_shoud_succeed() {
+        let exp = expectation(description: "request complete")
+        service.getRooms { (result) in
+            exp.fulfill()
+            do {
+                let _ = try result.get()
+            } catch {
+                XCTFail("request should not get error: \(error)")
+            }
         }
+        
+        wait(for: [exp], timeout: UnitTestConstants.timeout)
     }
-
+    
+    func test_turnBedroomLight1_on_shoud_succeed() {
+        let exp = expectation(description: "request complete")
+        service.turnBedroomLight1(on: true) { (result) in
+            exp.fulfill()
+            do {
+                let success = try result.get()
+                XCTAssertTrue(success, "operation should succeed")
+            } catch {
+                XCTFail("request should not get error: \(error)")
+            }
+        }
+        
+        wait(for: [exp], timeout: UnitTestConstants.timeout)
+    }
+    
+    func test_turnBedroomLight1_off_shoud_succeed() {
+        let exp = expectation(description: "request complete")
+        service.turnBedroomLight1(on: false) { (result) in
+            exp.fulfill()
+            do {
+                let success = try result.get()
+                XCTAssertTrue(success, "operation should succeed")
+            } catch {
+                XCTFail("request should not get error: \(error)")
+            }
+        }
+        
+        wait(for: [exp], timeout: UnitTestConstants.timeout)
+    }
 }

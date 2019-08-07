@@ -31,8 +31,8 @@
 		8CAB61AB22FA2C0300329C2B /* DataStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61AA22FA2C0300329C2B /* DataStorageTests.swift */; };
 		8CAB61AD22FA469200329C2B /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61AC22FA469200329C2B /* Endpoint.swift */; };
 		8CAB61B222FA4C1200329C2B /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */; };
-		8CAB61B522FA4C7900329C2B /* MockSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B422FA4C7900329C2B /* MockSessionManager.swift */; };
 		8CAB61B722FA4D6E00329C2B /* UnitTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */; };
+		8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +84,8 @@
 		8CAB61AA22FA2C0300329C2B /* DataStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorageTests.swift; sourceTree = "<group>"; };
 		8CAB61AC22FA469200329C2B /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
-		8CAB61B422FA4C7900329C2B /* MockSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSessionManager.swift; sourceTree = "<group>"; };
 		8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestConstants.swift; sourceTree = "<group>"; };
+		8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
 		D32BCD5C0B20F86FA2C297C7 /* Pods_SmartHome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F58085FFF464B79016D8ADFC /* Pods_SmartHomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartHomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -308,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */,
+				8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -315,7 +316,6 @@
 		8CAB61B322FA4C5C00329C2B /* Mock */ = {
 			isa = PBXGroup;
 			children = (
-				8CAB61B422FA4C7900329C2B /* MockSessionManager.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -559,9 +559,9 @@
 			files = (
 				8CAB61B222FA4C1200329C2B /* NetworkManagerTests.swift in Sources */,
 				8CAB61B722FA4D6E00329C2B /* UnitTestConstants.swift in Sources */,
+				8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */,
 				8CAB61AB22FA2C0300329C2B /* DataStorageTests.swift in Sources */,
 				8CAB61A822F9080E00329C2B /* HouseTests.swift in Sources */,
-				8CAB61B522FA4C7900329C2B /* MockSessionManager.swift in Sources */,
 				8CAB616D22F8FC4500329C2B /* SmartHomeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
