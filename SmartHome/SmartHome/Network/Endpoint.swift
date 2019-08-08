@@ -42,6 +42,8 @@ enum Endpoint: String, URLRequestConvertible {
     }
     
     func asURLRequest() throws -> URLRequest {
-        return try URLRequest(url: self.url, method: .get, headers: nil)
+        var request = try URLRequest(url: self.url, method: .get, headers: nil)
+        request.addValue("*/*", forHTTPHeaderField: "Accept")
+        return request
     }
 }

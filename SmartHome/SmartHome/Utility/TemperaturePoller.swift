@@ -7,7 +7,27 @@
 //
 
 import Foundation
+import RxCocoa
 
-protocol TemperaturePoller {
+class TemperaturePoller {
+    private var apiService: ApiServiceProvider
     
+    init(apiService: ApiServiceProvider) {
+        self.apiService = apiService
+    }
+    
+    var cool = BehaviorRelay<Bool>(value: false)
+    private var shouldStop = false
+    func start() {
+        shouldStop = false
+        poll()
+    }
+    
+    func stop() {
+        shouldStop = true
+    }
+    
+    private func poll() {
+//        apiService.getRooms(completion: <#T##ResultBlock<House>##ResultBlock<House>##(Result<House, Error>) -> Void#>)
+    }
 }

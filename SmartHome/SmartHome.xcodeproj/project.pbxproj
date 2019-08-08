@@ -35,6 +35,8 @@
 		8CC4219A22FB1CB400BCC02A /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219922FB1CB400BCC02A /* RoomType.swift */; };
 		8CC4219C22FB1D6300BCC02A /* FixtureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219B22FB1D6300BCC02A /* FixtureType.swift */; };
 		8CC4219E22FB9A7200BCC02A /* RoomFixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219D22FB9A7200BCC02A /* RoomFixtureCell.swift */; };
+		8CC421A122FBACF600BCC02A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC421A022FBACF600BCC02A /* Weather.swift */; };
+		8CC421A322FBAE8500BCC02A /* FakeWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC421A222FBAE8500BCC02A /* FakeWeather.swift */; };
 		8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */; };
 		8CE428AA22FB041400EBCB57 /* HomepageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,8 @@
 		8CC4219922FB1CB400BCC02A /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		8CC4219B22FB1D6300BCC02A /* FixtureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureType.swift; sourceTree = "<group>"; };
 		8CC4219D22FB9A7200BCC02A /* RoomFixtureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFixtureCell.swift; sourceTree = "<group>"; };
+		8CC421A022FBACF600BCC02A /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		8CC421A222FBAE8500BCC02A /* FakeWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeWeather.swift; sourceTree = "<group>"; };
 		8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageCellViewModel.swift; sourceTree = "<group>"; };
 		CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +290,7 @@
 		8CAB61A222F901BD00329C2B /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				8CC4219F22FBACE400BCC02A /* Models */,
 				8CAB61A322F901CF00329C2B /* TemperaturePoller.swift */,
 			);
 			path = Utility;
@@ -330,6 +335,15 @@
 			children = (
 			);
 			path = Mock;
+			sourceTree = "<group>";
+		};
+		8CC4219F22FBACE400BCC02A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8CC421A022FBACF600BCC02A /* Weather.swift */,
+				8CC421A222FBAE8500BCC02A /* FakeWeather.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,12 +566,14 @@
 				8CAB619F22F9015300329C2B /* Fixture.swift in Sources */,
 				8CAB618822F9000200329C2B /* NetworkManager.swift in Sources */,
 				8CAB61A122F9018600329C2B /* ApiService.swift in Sources */,
+				8CC421A122FBACF600BCC02A /* Weather.swift in Sources */,
 				8CAB615A22F8FC4000329C2B /* ViewController.swift in Sources */,
 				8CC4219C22FB1D6300BCC02A /* FixtureType.swift in Sources */,
 				8CC4219A22FB1CB400BCC02A /* RoomType.swift in Sources */,
 				8CAB615822F8FC4000329C2B /* AppDelegate.swift in Sources */,
 				8CAB618A22F9003800329C2B /* DataStorage.swift in Sources */,
 				8CE428AA22FB041400EBCB57 /* HomepageCellViewModel.swift in Sources */,
+				8CC421A322FBAE8500BCC02A /* FakeWeather.swift in Sources */,
 				8CC4219822FB17EB00BCC02A /* FixtureCellViewModel.swift in Sources */,
 				8CAB619D22F9014000329C2B /* Room.swift in Sources */,
 				8CAB619B22F9012600329C2B /* House.swift in Sources */,

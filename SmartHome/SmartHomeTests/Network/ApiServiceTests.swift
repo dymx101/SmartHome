@@ -65,4 +65,48 @@ class ApiServiceTests: XCTestCase {
         
         wait(for: [exp], timeout: UnitTestConstants.timeout)
     }
+    
+    func test_getWeather_shoud_succeed() {
+        let exp = expectation(description: "request complete")
+        service.getWeather { result in
+            exp.fulfill()
+            do {
+                let _ = try result.get()
+            } catch {
+                XCTFail("request should not get error: \(error)")
+            }
+        }
+        
+        wait(for: [exp], timeout: UnitTestConstants.timeout)
+    }
+    
+    func test_getFakeWeather_cold_shoud_succeed() {
+        let exp = expectation(description: "request complete")
+        service.getFakeWeather(cold: true) { result in
+            exp.fulfill()
+            do {
+                let weather = try result.get()
+                XCTAssertTrue(weather.weathers.first!.temp == 20, "temp should be correct")
+            } catch {
+                XCTFail("request should not get error: \(error)")
+            }
+        }
+        
+        wait(for: [exp], timeout: UnitTestConstants.timeout)
+    }
+    
+    func test_getFakeWeather_warm_shoud_succeed() {
+        let exp = expectation(description: "request complete")
+        service.getFakeWeather(cold: false) { result in
+            exp.fulfill()
+            do {
+                let weather = try result.get()
+                XCTAssertTrue(weather.weathers.first!.temp == 30, "temp should be correct")
+            } catch {
+                XCTFail("request should not get error: \(error)")
+            }
+        }
+        
+        wait(for: [exp], timeout: UnitTestConstants.timeout)
+    }
 }
