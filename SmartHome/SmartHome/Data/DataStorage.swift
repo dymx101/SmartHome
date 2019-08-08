@@ -11,6 +11,7 @@ import Foundation
 protocol DataStoring {
     func saveHouse(_ house: House?)
     func loadHouse() -> House?
+    func saveRoom(_ room: Room, type: RoomType)
 }
 
 class DataStorage: DataStoring {
@@ -45,5 +46,10 @@ class DataStorage: DataStoring {
         
         houseCache = try? JSONDecoder().decode(House.self, from: data)
         return houseCache
+    }
+    
+    func saveRoom(_ room: Room, type: RoomType) {
+        houseCache?.setRoom(room, type: type)
+        saveHouse(houseCache)
     }
 }
