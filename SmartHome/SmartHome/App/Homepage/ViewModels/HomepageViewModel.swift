@@ -20,16 +20,20 @@ class HomepageViewModel {
         self.dataStorage = dataStorage
     }
     
+    private func generateCellViewModels(_ house: inout House) {
+        house.rooms.bedroom.populateMap()
+        house.rooms.livingRoom.populateMap()
+        house.rooms.kitcken.populateMap()
+        
+        rooms.accept([HomepageCellViewModel(room: house.rooms.bedroom, type: .bedroom),
+                      HomepageCellViewModel(room: house.rooms.livingRoom, type: .livingRoom),
+                      HomepageCellViewModel(room: house.rooms.kitcken, type: .kitcken)])
+    }
+    
     func getRooms() {
         // get data from local storage
         if var house = dataStorage.loadHouse() {
-            house.rooms.bedroom.populateMap()
-            house.rooms.livingRoom.populateMap()
-            house.rooms.kitcken.populateMap()
-            
-            rooms.accept([HomepageCellViewModel(room: house.rooms.bedroom, type: .bedroom),
-                                HomepageCellViewModel(room: house.rooms.livingRoom, type: .livingRoom),
-                                HomepageCellViewModel(room: house.rooms.kitcken, type: .kitcken)])
+            generateCellViewModels(&house)
             return
         }
         
@@ -39,13 +43,7 @@ class HomepageViewModel {
             SVProgressHUD.dismiss()
             do {
                 var house = try result.get()
-                house.rooms.bedroom.populateMap()
-                house.rooms.livingRoom.populateMap()
-                house.rooms.kitcken.populateMap()
-                
-                self?.rooms.accept([HomepageCellViewModel(room: house.rooms.bedroom, type: .bedroom),
-                                    HomepageCellViewModel(room: house.rooms.livingRoom, type: .livingRoom),
-                                    HomepageCellViewModel(room: house.rooms.kitcken, type: .kitcken)])
+                self?.generateCellViewModels(&house)
                 // cache the house data
                 self?.dataStorage.saveHouse(house)
             } catch {
