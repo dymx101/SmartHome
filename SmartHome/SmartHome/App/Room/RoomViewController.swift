@@ -41,7 +41,7 @@ class RoomViewController: UIViewController {
             .asObservable()
             .subscribe(onNext: { [weak self] value in
                 SVProgressHUD.show()
-                self?.viewModel?.turnFixture(on: value, fixtureType: model.type, completion: { (result) in
+                self?.viewModel?.turnFixture(on: value, fixtureType: model.type, completion: { [weak self] (result) in
                     SVProgressHUD.dismiss()
                     do {
                         let success = try result.get()
@@ -57,5 +57,15 @@ class RoomViewController: UIViewController {
             }).disposed(by: cell.disposeBag)
             
         }.disposed(by: disposeBag)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel?.startTemperaturePolling()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel?.stopTemperaturePolling()
     }
 }

@@ -12,12 +12,15 @@ import RxCocoa
 class TemperaturePoller {
     private var apiService: ApiServiceProvider
     
+    private let inteval = 60.0
+    private let conditionTemp = 25.0
+    
+    var isCold = BehaviorRelay<Bool>(value: false)
+    private var shouldStop = false
+    
     init(apiService: ApiServiceProvider) {
         self.apiService = apiService
     }
-    
-    var cool = BehaviorRelay<Bool>(value: false)
-    private var shouldStop = false
     func start() {
         shouldStop = false
         poll()
@@ -27,7 +30,32 @@ class TemperaturePoller {
         shouldStop = true
     }
     
+    private func decideIfIsCold(_ weather: Weather) -> Bool {
+        guard let temp = weather.weathers.first?.temp else {
+            return false
+        }
+        
+        return temp < conditionTemp
+    }
+    
     private func poll() {
-//        apiService.getRooms(completion: <#T##ResultBlock<House>##ResultBlock<House>##(Result<House, Error>) -> Void#>)
+        
+        if shouldStop {
+            return
+        }
+        
+        apiService.getWeather { [weak self] (result) in
+            do {
+                let weather = try result.get()
+                self?.isCold.accept(self?.decideIfIsCold(weather) ?? false)
+                print("got weather data, temp = \(weather.weathers.first?.temp ?? 0.0)")
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + inteval) {
+            self.poll()
+        }
     }
 }
