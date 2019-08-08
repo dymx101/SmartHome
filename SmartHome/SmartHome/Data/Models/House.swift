@@ -10,6 +10,17 @@ import Foundation
 
 struct House: Codable {
     var rooms: HouseRooms
+    
+    mutating func setRoom(_ room: Room, type: RoomType) {
+        switch type {
+        case .bedroom:
+            rooms.bedroom = room
+        case .livingRoom:
+            rooms.livingRoom = room
+        case .kitcken:
+            rooms.kitcken = room
+        }
+    }
 }
 
 struct HouseRooms: Codable {
