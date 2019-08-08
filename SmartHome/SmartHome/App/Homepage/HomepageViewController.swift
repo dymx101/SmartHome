@@ -50,7 +50,10 @@ class HomepageViewController: UIViewController {
                 self.navigationController?.pushViewController(roomVC, animated: true)
             }
         ).disposed(by: disposeBag)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         // request room data
         viewModel.getRooms()
     }

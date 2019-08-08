@@ -34,6 +34,7 @@
 		8CC4219822FB17EB00BCC02A /* FixtureCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219722FB17EB00BCC02A /* FixtureCellViewModel.swift */; };
 		8CC4219A22FB1CB400BCC02A /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219922FB1CB400BCC02A /* RoomType.swift */; };
 		8CC4219C22FB1D6300BCC02A /* FixtureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219B22FB1D6300BCC02A /* FixtureType.swift */; };
+		8CC4219E22FB9A7200BCC02A /* RoomFixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219D22FB9A7200BCC02A /* RoomFixtureCell.swift */; };
 		8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */; };
 		8CE428AA22FB041400EBCB57 /* HomepageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		8CC4219722FB17EB00BCC02A /* FixtureCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCellViewModel.swift; sourceTree = "<group>"; };
 		8CC4219922FB1CB400BCC02A /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
 		8CC4219B22FB1D6300BCC02A /* FixtureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureType.swift; sourceTree = "<group>"; };
+		8CC4219D22FB9A7200BCC02A /* RoomFixtureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFixtureCell.swift; sourceTree = "<group>"; };
 		8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		8CE428A922FB041400EBCB57 /* HomepageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageCellViewModel.swift; sourceTree = "<group>"; };
 		CC27645E17DC6604202EE00A /* Pods-SmartHome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.debug.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 			children = (
 				8CAB619322F900D300329C2B /* ViewModels */,
 				8CAB619622F900F200329C2B /* RoomViewController.swift */,
+				8CC4219D22FB9A7200BCC02A /* RoomFixtureCell.swift */,
 			);
 			path = Room;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				8CAB619D22F9014000329C2B /* Room.swift in Sources */,
 				8CAB619B22F9012600329C2B /* House.swift in Sources */,
 				8CAB619222F900C400329C2B /* HomepageViewModel.swift in Sources */,
+				8CC4219E22FB9A7200BCC02A /* RoomFixtureCell.swift in Sources */,
 				8CAB619522F900E400329C2B /* RoomViewModel.swift in Sources */,
 				8CAB618F22F900A000329C2B /* HomepageViewController.swift in Sources */,
 				8CAB61A422F901CF00329C2B /* TemperaturePoller.swift in Sources */,
