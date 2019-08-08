@@ -10,31 +10,37 @@ http://private-1e863-house4591.apiary-mock.com/
 https://www.metaweather.com/api/location/2165352/
 
 ### Architecture: MVVM
+```
+1. There are two screens in the app, the homepage and the room page.
+2. each screen has a view controller, a view model class for the screen, and a cell view model class for the cell
+3. all the components are loosely coupled, e.g. the ApiService and DataStorage, there's nothing called 'shared'.
+```
 
-###3-party libraries: 
-Alarmofire 
-SVProgressHUD 
-RxSwift
-RxCocoa
+### 3-party libraries: 
+```
+Alarmofire - for http request
+SVProgressHUD - for showing message to user 
+RxSwift - for rx style programming
+RxCocoa - for rx style programming for UI elements
+```
 
-###Modules:
-NetworkManager(sessionManager)
+### Modules:
+1. NetworkManager: for general network request, it uses Alarmofire sessionManager to do the real job 
 
-DataRepository()
+2. DataStorage: for storing data locally 
 
-ApiService(networkManager)
+3. ApiService: provide various api endpoints method for the app
 
-TemperaturePoller(apiService)
-
-HomepageViewModel(apiservice, dataRepository)
-
-RoomViewModel(apiService, dataRepository)
+4. TemperaturePoller: for polling the weather data
 
 ### Models:
+```
 House
 
 Room
 
 Fixture
 
+Weather
+```
 
