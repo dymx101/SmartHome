@@ -9,10 +9,15 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SVProgressHUD
 
 class RoomViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.rowHeight = 60.0
+        }
+    }
     
     var viewModel: RoomViewModel?
     
@@ -25,8 +30,32 @@ class RoomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel?.fixtures.bind(to: tableView.rx.items(cellIdentifier: "fixtureCell", cellType: UITableViewCell.self)) { row, model, cell in
+        viewModel?.fixtures.bind(to: tableView.rx.items(cellIdentifier: "fixtureCell", cellType: RoomFixtureCell.self)) { row, model, cell in
             cell.textLabel?.text = model.name
+            cell.switchView.isOn = model.on
+            
+            cell.switchView.rx.isOn
+            .changed
+            .debounce(.microseconds(500), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .asObservable()
+            .subscribe(onNext: { [weak self] value in
+                SVProgressHUD.show()
+                self?.viewModel?.turnFixture(on: value, fixtureType: model.type, completion: { (result) in
+                    SVProgressHUD.dismiss()
+                    do {
+                        let success = try result.get()
+                        if success {
+                            self?.viewModel?.updateFixtureStatus(on: value, name: model.name)
+                        } else {
+                            SVProgressHUD.showInfo(withStatus: "Operation Failed")
+                        }
+                    } catch {
+                        SVProgressHUD.showError(withStatus: error.localizedDescription)
+                    }
+                })
+            }).disposed(by: cell.disposeBag)
+            
         }.disposed(by: disposeBag)
     }
 }
