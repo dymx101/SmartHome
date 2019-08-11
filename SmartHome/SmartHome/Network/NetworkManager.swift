@@ -47,6 +47,8 @@ class NetworkManager: NetworkManaging {
                         } else {
                             completion(.failure(NetworkError.dataNotAvailable))
                         }
+                    } else if "String".data(using: .utf8) is T {
+                        completion(.success(dataResponse.data as! T))
                     } else {
                         self.decode(type, data: dataResponse.data, completion: completion)
                     }
@@ -81,4 +83,15 @@ enum NetworkError: Int, Error {
     case unknown
     case dataParsing
     case dataNotAvailable
+    
+    var localizedDescription: String {
+        switch self {
+        case .unknown:
+            return NSLocalizedString("Unknown Error", comment: "")
+        case .dataParsing:
+            return NSLocalizedString("Data Parsing Error", comment: "")
+        case .dataNotAvailable:
+            return NSLocalizedString("Data is not available", comment: "")
+        }
+    }
 }

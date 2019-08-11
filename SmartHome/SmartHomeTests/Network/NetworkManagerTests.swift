@@ -21,7 +21,7 @@ class NetworkManagerTests: XCTestCase {
 
     func test_requestRooms_shoud_succeed() {
         let exp = expectation(description: "request complete")
-        networkManager.request(House.self, endpoint: Endpoint.rooms) { (result) in
+        networkManager.request(Data.self, endpoint: Endpoint.rooms) { (result) in
             exp.fulfill()
             do {
                 let _ = try result.get()
