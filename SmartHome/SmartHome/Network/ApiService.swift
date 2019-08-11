@@ -11,10 +11,10 @@ import Alamofire
 
 protocol ApiServiceProvider {
     @discardableResult
-    func getRooms(completion: @escaping ResultBlock<House>) -> DataRequest?
+    func getRooms(completion: @escaping ResultBlock<Data>) -> DataRequest?
     
     @discardableResult
-    func turnFixture(on: Bool, fixtureType: FixtureType, completion: @escaping ResultBlock<Bool>) -> DataRequest?
+    func turnFixture(on: Bool, fixtureName: String, roomName: String, completion: @escaping ResultBlock<Bool>) -> DataRequest?
     
     @discardableResult
     func getWeather(completion: @escaping ResultBlock<Weather>) -> DataRequest?
@@ -24,6 +24,7 @@ protocol ApiServiceProvider {
 }
 
 class ApiService: ApiServiceProvider {
+    
     private var networkManager: NetworkManaging
     
     init(networkManager: NetworkManaging) {
@@ -31,13 +32,13 @@ class ApiService: ApiServiceProvider {
     }
     
     @discardableResult
-    func getRooms(completion: @escaping ResultBlock<House>) -> DataRequest? {
-        return networkManager.request(House.self, endpoint: .rooms, completion: completion)
+    func getRooms(completion: @escaping ResultBlock<Data>) -> DataRequest? {
+        return networkManager.request(Data.self, endpoint: .rooms, completion: completion)
     }
     
     @discardableResult
-    func turnFixture(on: Bool, fixtureType: FixtureType, completion: @escaping ResultBlock<Bool>) -> DataRequest? {
-        let ep = on ? fixtureType.endpoints.on : fixtureType.endpoints.off
+    func turnFixture(on: Bool, fixtureName: String, roomName: String, completion: @escaping ResultBlock<Bool>) -> DataRequest? {
+        let ep = Endpoint.fixture(name: fixtureName, roomName: roomName, on: on)
         return networkManager.request(String.self, endpoint: ep) { (result) in
             completion(result.map {$0 == "true"})
         }
