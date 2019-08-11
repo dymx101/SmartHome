@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		33797DFA0139279E8A640DA0 /* Pods_SmartHome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D32BCD5C0B20F86FA2C297C7 /* Pods_SmartHome.framework */; };
 		8BCA524DB24596868870434E /* Pods_SmartHomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F58085FFF464B79016D8ADFC /* Pods_SmartHomeTests.framework */; };
+		8C6F470E22FFBAB1008B5D0E /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6F470D22FFBAB1008B5D0E /* EndpointTests.swift */; };
 		8CAB615822F8FC4000329C2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB615722F8FC4000329C2B /* AppDelegate.swift */; };
 		8CAB615A22F8FC4000329C2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB615922F8FC4000329C2B /* ViewController.swift */; };
 		8CAB615D22F8FC4000329C2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB615B22F8FC4000329C2B /* Main.storyboard */; };
@@ -33,7 +34,6 @@
 		8CAB61B722FA4D6E00329C2B /* UnitTestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */; };
 		8CC4219822FB17EB00BCC02A /* FixtureCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219722FB17EB00BCC02A /* FixtureCellViewModel.swift */; };
 		8CC4219A22FB1CB400BCC02A /* RoomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219922FB1CB400BCC02A /* RoomType.swift */; };
-		8CC4219C22FB1D6300BCC02A /* FixtureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219B22FB1D6300BCC02A /* FixtureType.swift */; };
 		8CC4219E22FB9A7200BCC02A /* RoomFixtureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC4219D22FB9A7200BCC02A /* RoomFixtureCell.swift */; };
 		8CC421A122FBACF600BCC02A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC421A022FBACF600BCC02A /* Weather.swift */; };
 		8CC421A322FBAE8500BCC02A /* FakeWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC421A222FBAE8500BCC02A /* FakeWeather.swift */; };
@@ -62,6 +62,7 @@
 		06F2E2EAE5CFB1FFFD1652BC /* Pods-SmartHomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHomeTests.release.xcconfig"; path = "Target Support Files/Pods-SmartHomeTests/Pods-SmartHomeTests.release.xcconfig"; sourceTree = "<group>"; };
 		292F95A9AEAF5035432A8799 /* Pods-SmartHomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHomeTests.debug.xcconfig"; path = "Target Support Files/Pods-SmartHomeTests/Pods-SmartHomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3665F6C16EB97DCEF1E12DA6 /* Pods-SmartHome.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartHome.release.xcconfig"; path = "Target Support Files/Pods-SmartHome/Pods-SmartHome.release.xcconfig"; sourceTree = "<group>"; };
+		8C6F470D22FFBAB1008B5D0E /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		8CAB615422F8FC4000329C2B /* SmartHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CAB615722F8FC4000329C2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8CAB615922F8FC4000329C2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +93,6 @@
 		8CAB61B622FA4D6E00329C2B /* UnitTestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestConstants.swift; sourceTree = "<group>"; };
 		8CC4219722FB17EB00BCC02A /* FixtureCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureCellViewModel.swift; sourceTree = "<group>"; };
 		8CC4219922FB1CB400BCC02A /* RoomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomType.swift; sourceTree = "<group>"; };
-		8CC4219B22FB1D6300BCC02A /* FixtureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureType.swift; sourceTree = "<group>"; };
 		8CC4219D22FB9A7200BCC02A /* RoomFixtureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomFixtureCell.swift; sourceTree = "<group>"; };
 		8CC421A022FBACF600BCC02A /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8CC421A222FBAE8500BCC02A /* FakeWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeWeather.swift; sourceTree = "<group>"; };
@@ -282,7 +282,6 @@
 				8CAB619C22F9014000329C2B /* Room.swift */,
 				8CC4219922FB1CB400BCC02A /* RoomType.swift */,
 				8CAB619E22F9015300329C2B /* Fixture.swift */,
-				8CC4219B22FB1D6300BCC02A /* FixtureType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -326,6 +325,7 @@
 			children = (
 				8CAB61B122FA4C1200329C2B /* NetworkManagerTests.swift */,
 				8CE1A5F822FA5A82005785AA /* ApiServiceTests.swift */,
+				8C6F470D22FFBAB1008B5D0E /* EndpointTests.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -568,7 +568,6 @@
 				8CAB61A122F9018600329C2B /* ApiService.swift in Sources */,
 				8CC421A122FBACF600BCC02A /* Weather.swift in Sources */,
 				8CAB615A22F8FC4000329C2B /* ViewController.swift in Sources */,
-				8CC4219C22FB1D6300BCC02A /* FixtureType.swift in Sources */,
 				8CC4219A22FB1CB400BCC02A /* RoomType.swift in Sources */,
 				8CAB615822F8FC4000329C2B /* AppDelegate.swift in Sources */,
 				8CAB618A22F9003800329C2B /* DataStorage.swift in Sources */,
@@ -594,6 +593,7 @@
 				8CAB61B722FA4D6E00329C2B /* UnitTestConstants.swift in Sources */,
 				8CE1A5F922FA5A82005785AA /* ApiServiceTests.swift in Sources */,
 				8CAB61AB22FA2C0300329C2B /* DataStorageTests.swift in Sources */,
+				8C6F470E22FFBAB1008B5D0E /* EndpointTests.swift in Sources */,
 				8CAB61A822F9080E00329C2B /* HouseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
