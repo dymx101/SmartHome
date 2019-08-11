@@ -14,7 +14,7 @@ import Alamofire
 
 class RoomViewModel {
     private var room: Room
-    private var roomType: RoomType
+    private var roomName: String
     
     private var apiService: ApiServiceProvider
     private var dataStorage: DataStoring
@@ -23,9 +23,11 @@ class RoomViewModel {
     private var tempPoller: TemperaturePoller
     private let disposeBag = DisposeBag()
     
-    init(room: Room, roomType: RoomType, apiService: ApiServiceProvider, dataStorage: DataStoring) {
+    private let fixtureNameAC = "AC"
+    
+    init(room: Room, roomName: String, apiService: ApiServiceProvider, dataStorage: DataStoring) {
         self.room = room
-        self.roomType = roomType
+        self.roomName = roomName
         self.apiService = apiService
         self.dataStorage = dataStorage
         self.tempPoller = TemperaturePoller(apiService: apiService)
@@ -35,7 +37,15 @@ class RoomViewModel {
         observePollingTemperature()
     }
     
+    private var hasAirCon: Bool {
+        return room.fixtures.contains(fixtureNameAC)
+    }
+    
     private func observePollingTemperature() {
+        guard hasAirCon else {
+            return
+        }
+        
         tempPoller.isCold.subscribe(onNext: { [weak self] isCold in
             let acIsOn = self?.room.fixtureStatusMap?["AC"] ?? false
             if isCold && acIsOn  {
@@ -51,10 +61,8 @@ class RoomViewModel {
     private func generateCellViewModels() {
         var cellVieModels = [FixtureCellViewModel]()
         room.fixtureStatusMap?.keys.sorted().forEach({ (name) in
-            if let fixtureType = FixtureType.fixtureType(forRoomType: roomType, fixtureName: name) {
-                let on = room.fixtureStatusMap?[name] ?? false
-                cellVieModels.append(FixtureCellViewModel(name: name, type: fixtureType, on: on))
-            }
+            let on = room.fixtureStatusMap?[name] ?? false
+            cellVieModels.append(FixtureCellViewModel(name: name, roomName: roomName, on: on))
         })
         
         fixtures.accept(cellVieModels)
@@ -65,16 +73,18 @@ class RoomViewModel {
         // regerate the cell view models
         generateCellViewModels()
         // save the change to storage
-        dataStorage.saveRoom(room, type: roomType)
+        dataStorage.saveRoom(room, name: roomName)
     }
     
     @discardableResult
-    func turnFixture(on: Bool, fixtureType: FixtureType, completion: @escaping ResultBlock<Bool>) -> DataRequest? {
-        return apiService.turnFixture(on: on, fixtureType: fixtureType, completion: completion)
+    func turnFixture(on: Bool, fixtureName: String, roomName: String, completion: @escaping ResultBlock<Bool>) -> DataRequest? {
+        return apiService.turnFixture(on: on, fixtureName: fixtureName, roomName: roomName, completion: completion)
     }
     
     func startTemperaturePolling() {
-        tempPoller.start()
+        if hasAirCon {
+            tempPoller.start()
+        }
     }
     
     func stopTemperaturePolling() {

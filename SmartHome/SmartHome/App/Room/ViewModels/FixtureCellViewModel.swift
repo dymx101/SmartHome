@@ -10,6 +10,6 @@ import UIKit
 
 struct FixtureCellViewModel {
     let name: String
-    let type: FixtureType
+    let roomName: String
     var on: Bool
 }

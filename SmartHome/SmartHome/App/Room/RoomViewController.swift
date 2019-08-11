@@ -41,7 +41,7 @@ class RoomViewController: UIViewController {
             .asObservable()
             .subscribe(onNext: { [weak self] value in
                 SVProgressHUD.show()
-                self?.viewModel?.turnFixture(on: value, fixtureType: model.type, completion: { [weak self] (result) in
+                self?.viewModel?.turnFixture(on: value, fixtureName: model.name, roomName: model.roomName, completion: { [weak self] (result) in
                     SVProgressHUD.dismiss()
                     do {
                         let success = try result.get()

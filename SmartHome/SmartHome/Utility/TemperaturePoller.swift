@@ -44,6 +44,7 @@ class TemperaturePoller {
             return
         }
         
+//        apiService.getFakeWeather(cold: true) { [weak self] (result) in
         apiService.getWeather { [weak self] (result) in
             do {
                 let weather = try result.get()

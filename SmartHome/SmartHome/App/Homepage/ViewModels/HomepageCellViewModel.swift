@@ -9,9 +9,6 @@
 import Foundation
 
 struct HomepageCellViewModel {
-    var name: String {
-        return type.rawValue
-    }
     let room: Room
-    let type: RoomType
+    let name: String
 }

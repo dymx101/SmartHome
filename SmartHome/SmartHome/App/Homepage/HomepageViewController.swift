@@ -44,7 +44,7 @@ class HomepageViewController: UIViewController {
                 guard let `self` = self else {return}
                 let roomVC = RoomViewController.createFromStoryboard()
                 roomVC.viewModel = RoomViewModel(room: model.room,
-                                                  roomType: model.type,
+                                                  roomName: model.name,
                                                   apiService: self.apiService,
                                                   dataStorage: self.dataStorage)
                 self.navigationController?.pushViewController(roomVC, animated: true)

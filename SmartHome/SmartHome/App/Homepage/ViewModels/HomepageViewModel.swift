@@ -21,13 +21,23 @@ class HomepageViewModel {
     }
     
     private func generateCellViewModels(_ house: inout House) {
-        house.rooms.bedroom.populateMap()
-        house.rooms.livingRoom.populateMap()
-        house.rooms.kitcken.populateMap()
+        var roomsProcessed = [String: Room]()
+        house.rooms.forEach { (arg) in
+            var (name, room) = arg
+            room.populateMap()
+            roomsProcessed[name] = room
+        }
+        house.rooms = roomsProcessed
         
-        rooms.accept([HomepageCellViewModel(room: house.rooms.bedroom, type: .bedroom),
-                      HomepageCellViewModel(room: house.rooms.livingRoom, type: .livingRoom),
-                      HomepageCellViewModel(room: house.rooms.kitcken, type: .kitcken)])
+        let cellViewModels: [HomepageCellViewModel] = house.rooms.keys.sorted().compactMap { (name) in
+            if let room = house.rooms[name] {
+                return HomepageCellViewModel(room: room, name: name)
+            }
+            
+            return nil
+        }
+        
+        rooms.accept(cellViewModels)
     }
     
     func getRooms() {
@@ -42,10 +52,15 @@ class HomepageViewModel {
         apiService.getRooms { [weak self] (result) in
             SVProgressHUD.dismiss()
             do {
-                var house = try result.get()
-                self?.generateCellViewModels(&house)
-                // cache the house data
-                self?.dataStorage.saveHouse(house)
+                let data = try result.get()
+                if let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any?] {
+                    var house = House(json: json)
+                    self?.generateCellViewModels(&house)
+                    // cache the house data
+                    self?.dataStorage.saveHouse(house)
+                } else {
+                    SVProgressHUD.showError(withStatus: NetworkError.dataNotAvailable.localizedDescription)
+                }
             } catch {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
             }
