@@ -8,18 +8,38 @@
 
 import Foundation
 
-struct House: Codable {
-    var rooms: HouseRooms
+struct House {
+    var rooms = [String: Room]()
     
-    mutating func setRoom(_ room: Room, type: RoomType) {
-        switch type {
-        case .bedroom:
-            rooms.bedroom = room
-        case .livingRoom:
-            rooms.livingRoom = room
-        case .kitcken:
-            rooms.kitcken = room
+    init(json: [String: Any?]) {
+        guard let rooms = json["rooms"] as? [String: Any?] else {return}
+        
+        rooms.keys.forEach { (roomName) in
+            if let roomJson = rooms[roomName] as? [String: Any?],
+                let roomData = try? JSONSerialization.data(withJSONObject: roomJson, options: JSONSerialization.WritingOptions.prettyPrinted),
+                let room = try? JSONDecoder().decode(Room.self, from: roomData){
+                self.rooms[roomName] = room
+            }
         }
+    }
+    
+    func jsonRepresentation() -> [String: Any?] {
+        var json = [String: Any?]()
+        var jsonRooms = [String: Any?]()
+        rooms.forEach { (name, room) in
+            if let roomData = try? JSONEncoder().encode(room),
+                let roomJson = try? JSONSerialization.jsonObject(with: roomData, options: JSONSerialization.ReadingOptions.allowFragments) {
+                jsonRooms[name] = roomJson
+            }
+        }
+        
+        json["rooms"] = jsonRooms
+        
+        return json
+    }
+    
+    mutating func setRoom(_ room: Room, name: String) {
+        rooms[name] = room
     }
 }
 

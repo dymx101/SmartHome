@@ -14,27 +14,31 @@ class HouseTests: XCTestCase {
     
     func test_decodeFromJson_should_succeed() {
         let data = HouseTests.sampleJson.data(using: .utf8)!
+        
         do {
-            let house = try JSONDecoder().decode(House.self, from: data)
+            let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as! [String: Any?]
+            let house = House(json: json)
             
-            XCTAssertEqual(house.rooms.bedroom.fixtures[0], "Light1", "data should be correct")
-            XCTAssertEqual(house.rooms.bedroom.fixtures[1], "Light2", "data should be correct")
-            XCTAssertEqual(house.rooms.bedroom.fixtures[2], "AC", "data should be correct")
+            XCTAssertFalse(house.rooms.isEmpty, "room should not be empty")
             
-            XCTAssertEqual(house.rooms.livingRoom.fixtures[0], "Light", "data should be correct")
-            XCTAssertEqual(house.rooms.livingRoom.fixtures[1], "TV", "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtures[0], "Light1", "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtures[1], "Light2", "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtures[2], "AC", "data should be correct")
             
-            XCTAssertEqual(house.rooms.kitcken.fixtures[0], "Light", "data should be correct")
-            XCTAssertEqual(house.rooms.kitcken.fixtures[1], "Music", "data should be correct")
-            XCTAssertEqual(house.rooms.kitcken.fixtures[2], "Slowcooker", "data should be correct")
+            XCTAssertEqual(house.rooms["Living Room"]!.fixtures[0], "Light", "data should be correct")
+            XCTAssertEqual(house.rooms["Living Room"]!.fixtures[1], "TV", "data should be correct")
             
-            XCTAssertNotNil(house.rooms.bedroom.fixtureStatusMap, "data should not be nil")
-            XCTAssertNil(house.rooms.livingRoom.fixtureStatusMap, "data should be nil")
-            XCTAssertNil(house.rooms.kitcken.fixtureStatusMap, "data should be nil")
+            XCTAssertEqual(house.rooms["Kitchen"]!.fixtures[0], "Light", "data should be correct")
+            XCTAssertEqual(house.rooms["Kitchen"]!.fixtures[1], "Music", "data should be correct")
+            XCTAssertEqual(house.rooms["Kitchen"]!.fixtures[2], "Slowcooker", "data should be correct")
             
-            XCTAssertEqual(house.rooms.bedroom.fixtureStatusMap!["Light1"], true, "data should be correct")
-            XCTAssertEqual(house.rooms.bedroom.fixtureStatusMap!["Light2"], false, "data should be correct")
-            XCTAssertEqual(house.rooms.bedroom.fixtureStatusMap!["AC"], true, "data should be correct")
+            XCTAssertNotNil(house.rooms["Bedroom"]!.fixtureStatusMap, "data should not be nil")
+            XCTAssertNil(house.rooms["Living Room"]!.fixtureStatusMap, "data should be nil")
+            XCTAssertNil(house.rooms["Kitchen"]!.fixtureStatusMap, "data should be nil")
+            
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtureStatusMap!["Light1"], true, "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtureStatusMap!["Light2"], false, "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtureStatusMap!["AC"], true, "data should be correct")
         } catch {
             print(error)
             XCTFail("decoding should has no error")
@@ -44,31 +48,31 @@ class HouseTests: XCTestCase {
     func test_encodeToJson_should_succeed() {
         let data = HouseTests.sampleJson.data(using: .utf8)!
         do {
-            let house = try JSONDecoder().decode(House.self, from: data)
+            let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any?]
+            let house = House(json: json!)
             
-            let encodedData = try JSONEncoder().encode(house)
-            print(String(data: encodedData, encoding: .utf8)!)
+            let encodedJson = house.jsonRepresentation()
             
-            let sameHouse = try JSONDecoder().decode(House.self, from: encodedData)
+            let sameHouse = House(json: encodedJson)
             
-            XCTAssertEqual(sameHouse.rooms.bedroom.fixtures[0], "Light1", "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.bedroom.fixtures[1], "Light2", "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.bedroom.fixtures[2], "AC", "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtures[0], "Light1", "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtures[1], "Light2", "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtures[2], "AC", "data should be correct")
             
-            XCTAssertEqual(sameHouse.rooms.livingRoom.fixtures[0], "Light", "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.livingRoom.fixtures[1], "TV", "data should be correct")
+            XCTAssertEqual(house.rooms["Living Room"]!.fixtures[0], "Light", "data should be correct")
+            XCTAssertEqual(house.rooms["Living Room"]!.fixtures[1], "TV", "data should be correct")
             
-            XCTAssertEqual(sameHouse.rooms.kitcken.fixtures[0], "Light", "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.kitcken.fixtures[1], "Music", "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.kitcken.fixtures[2], "Slowcooker", "data should be correct")
+            XCTAssertEqual(house.rooms["Kitchen"]!.fixtures[0], "Light", "data should be correct")
+            XCTAssertEqual(house.rooms["Kitchen"]!.fixtures[1], "Music", "data should be correct")
+            XCTAssertEqual(house.rooms["Kitchen"]!.fixtures[2], "Slowcooker", "data should be correct")
             
-            XCTAssertNotNil(sameHouse.rooms.bedroom.fixtureStatusMap, "data should not be nil")
-            XCTAssertNil(sameHouse.rooms.livingRoom.fixtureStatusMap, "data should be nil")
-            XCTAssertNil(sameHouse.rooms.kitcken.fixtureStatusMap, "data should be nil")
+            XCTAssertNotNil(house.rooms["Bedroom"]!.fixtureStatusMap, "data should not be nil")
+            XCTAssertNil(house.rooms["Living Room"]!.fixtureStatusMap, "data should be nil")
+            XCTAssertNil(house.rooms["Kitchen"]!.fixtureStatusMap, "data should be nil")
             
-            XCTAssertEqual(sameHouse.rooms.bedroom.fixtureStatusMap!["Light1"], true, "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.bedroom.fixtureStatusMap!["Light2"], false, "data should be correct")
-            XCTAssertEqual(sameHouse.rooms.bedroom.fixtureStatusMap!["AC"], true, "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtureStatusMap!["Light1"], true, "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtureStatusMap!["Light2"], false, "data should be correct")
+            XCTAssertEqual(house.rooms["Bedroom"]!.fixtureStatusMap!["AC"], true, "data should be correct")
         } catch {
             print(error)
             XCTFail("decoding should has no error")
