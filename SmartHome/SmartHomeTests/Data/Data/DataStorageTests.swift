@@ -19,11 +19,12 @@ class DataStorageTests: XCTestCase {
 
     func test_saveAndLoadHouse_should_work() {
         let data = HouseTests.sampleJson.data(using: .utf8)!
-        let house = try! JSONDecoder().decode(House.self, from: data)
+        let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any?]
+        let house = House(json: json!)
         object.saveHouse(house)
         
         let sameHouse = object.loadHouse()
         XCTAssertNotNil(sameHouse, "data should not be nil")
-        XCTAssertEqual(sameHouse!.rooms.bedroom.fixtureStatusMap!["Light1"], true, "data should be correct")
+        XCTAssertEqual(sameHouse!.rooms["Bedroom"]!.fixtureStatusMap!["Light1"], true, "data should be correct")
     }
 }

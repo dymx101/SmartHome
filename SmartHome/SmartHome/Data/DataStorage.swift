@@ -11,7 +11,7 @@ import Foundation
 protocol DataStoring {
     func saveHouse(_ house: House?)
     func loadHouse() -> House?
-    func saveRoom(_ room: Room, type: RoomType)
+    func saveRoom(_ room: Room, name: String)
 }
 
 class DataStorage: DataStoring {
@@ -25,13 +25,13 @@ class DataStorage: DataStoring {
         }
         
         if let houseCache = houseCache {
-            house.rooms.bedroom.fixtureStatusMap = houseCache.rooms.bedroom.fixtureStatusMap
-            house.rooms.livingRoom.fixtureStatusMap = houseCache.rooms.livingRoom.fixtureStatusMap
-            house.rooms.kitcken.fixtureStatusMap = houseCache.rooms.kitcken.fixtureStatusMap
+            houseCache.rooms.forEach { (roomName, room) in
+                house.rooms[roomName] = room
+            }
         }
         houseCache = house
         
-        let data = try? JSONEncoder().encode(house)
+        let data = house.jsonRepresentation()
         UserDefaults.standard.set(data, forKey: STORE_KEY_HOUSE)
     }
     
@@ -40,16 +40,17 @@ class DataStorage: DataStoring {
             return houseCache
         }
         
-        guard let data = UserDefaults.standard.value(forKey: STORE_KEY_HOUSE) as? Data else {
+        guard let data = UserDefaults.standard.value(forKey: STORE_KEY_HOUSE) as? [String: Any?]
+            , let rooms = data["rooms"] as? [String: Any?], !rooms.isEmpty else {
             return nil
         }
         
-        houseCache = try? JSONDecoder().decode(House.self, from: data)
+        houseCache = House(json: data)
         return houseCache
     }
     
-    func saveRoom(_ room: Room, type: RoomType) {
-        houseCache?.setRoom(room, type: type)
+    func saveRoom(_ room: Room, name: String) {
+        houseCache?.setRoom(room, name: name)
         saveHouse(houseCache)
     }
 }
